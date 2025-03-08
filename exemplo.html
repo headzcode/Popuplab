@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopupLabs Example</title>
+    <link rel="stylesheet" href="../popuplab.css">
+</head>
+<body>
+    <button id="openPopup">Abrir Pop-up</button>
+
+    <script src="../popuplab.js"></script>
+    <script>
+        // Carrega e abre o pop-up 1234
+        document.getElementById('openPopup').addEventListener('click', async () => {
+            await PopupLabs.loadPopup('1234');
+            PopupLabs.setPopupContent('1234', {
+                title: 'Bem-vindo!',
+                description: 'Este é um pop-up personalizado.',
+                logo: 'https://via.placeholder.com/100'
+            });
+            PopupLabs.openPopup('1234');
+        });
+    </script>
+</body>
+</html>
