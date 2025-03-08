@@ -1,0 +1,42 @@
+<!-- presentes/1234.html -->
+<div class="popuplab-popup" id="popup-1234">
+    <div class="popuplab-content">
+        <img src="logo.png" class="popuplab-logo" alt="Logo">
+        <h2 class="popuplab-title">Título do Pop-up</h2>
+        <p class="popuplab-description">Descrição do Pop-up.</p>
+        <button class="popuplab-button">Ação Principal</button>
+        <button class="popuplab-close">Fechar</button>
+    </div>
+</div>
+
+<style>
+    .popuplab-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    .popuplab-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .popuplab-logo {
+        max-width: 100px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<script>
+    document.querySelector('.popuplab-close').addEventListener('click', () => {
+        document.getElementById('popup-1234').style.display = 'none';
+    });
+</script>
