@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PopupLabs Example</title>
-    <link rel="stylesheet" href="popuplab.css">
+    <link rel="stylesheet" href="https://headzcode.github.io/Popuplab/popuplab.css">
 </head>
 <body>
     <button id="openPopup">Abrir Pop-up</button>
@@ -13,13 +13,17 @@
     <script>
         // Carrega e abre o pop-up 1234
         document.getElementById('openPopup').addEventListener('click', async () => {
-            await PopupLabs.loadPopup('1234');
-            PopupLabs.setPopupContent('1234', {
-                title: 'Bem-vindo!',
-                description: 'Este é um pop-up personalizado.',
-                logo: 'https://via.placeholder.com/100'
-            });
-            PopupLabs.openPopup('1234');
+            try {
+                await PopupLabs.loadPopup('1234');
+                PopupLabs.setPopupContent('1234', {
+                    title: 'Bem-vindo!',
+                    description: 'Este é um pop-up personalizado.',
+                    logo: 'https://via.placeholder.com/100'
+                });
+                PopupLabs.openPopup('1234');
+            } catch (error) {
+                console.error('Erro ao carregar o pop-up:', error);
+            }
         });
     </script>
 </body>
