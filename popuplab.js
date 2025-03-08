@@ -5,7 +5,11 @@ class PopupLabs {
 
     // Carrega um pop-up pelo código (ex: 1234)
     async loadPopup(popupCode) {
-        const response = await fetch(`presentes/${popupCode}.html`);
+        const popupUrl = `https://headzcode.github.io/Popuplab/presentes/${popupCode}.html`;
+        const response = await fetch(popupUrl);
+        if (!response.ok) {
+            throw new Error(`Erro ao carregar o pop-up: ${response.statusText}`);
+        }
         const html = await response.text();
         const popupContainer = document.createElement('div');
         popupContainer.innerHTML = html;
@@ -70,5 +74,4 @@ class PopupLabs {
 }
 
 // Exporta a instância da biblioteca
-const popupLabs = new PopupLabs();
-window.PopupLabs = popupLabs; // Torna acessível globalmente
+window.PopupLabs = new PopupLabs(); // Torna acessível globalmente
